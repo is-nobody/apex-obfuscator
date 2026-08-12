@@ -1,6 +1,6 @@
 // source/utils/utils.h
-// Implementation of Utils for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of Utils for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #ifndef UTILS_H

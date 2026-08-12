@@ -1,6 +1,6 @@
 // source/core/sbox.c
-// Implementation of Sbox for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of Sbox for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #include "sbox.h"

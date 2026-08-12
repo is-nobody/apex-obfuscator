@@ -1,6 +1,6 @@
 // source/core/kdf.c
-// Implementation of KDF for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of KDF for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #include "kdf.h"

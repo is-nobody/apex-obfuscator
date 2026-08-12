@@ -1,6 +1,6 @@
 // source/core/crypto_context.c
-// Implementation of Crypto Context for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of Crypto Context for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #include "crypto_context.h"

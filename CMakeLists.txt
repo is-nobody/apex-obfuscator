@@ -1,10 +1,10 @@
 # CMakeLists.txt
-# Implementation of CMakeLists for Apex Cipher
-# https://github.com/is-nobody/apex-cipher
+# Implementation of CMakeLists for Apex Obfuscator
+# https://github.com/is-nobody/apex-obfuscator
 # MIT license
 
 cmake_minimum_required(VERSION 3.13)
-project(Apex-Cipher VERSION 26.08 LANGUAGES C)
+project(Apex-Obfuscator VERSION 26.08 LANGUAGES C)
 
 # enables gnu extensions 
 set(CMAKE_C_STANDARD 11)
@@ -28,10 +28,10 @@ set(SOURCES
     source/utils/utils.c
 )
 
-add_executable(apex-cipher ${SOURCES})
+add_executable(apex-obfuscator ${SOURCES})
 
 # header search paths for include from any directory
-target_include_directories(apex-cipher PRIVATE 
+target_include_directories(apex-obfuscator PRIVATE 
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/source/core
     ${CMAKE_CURRENT_SOURCE_DIR}/source/cli
@@ -56,26 +56,26 @@ if(NOT CMAKE_CROSSCOMPILING)
 endif()
 
 if(CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
-    target_compile_options(apex-cipher PRIVATE ${BASE_FLAGS} ${HIGH_PERF_FLAGS})
+    target_compile_options(apex-obfuscator PRIVATE ${BASE_FLAGS} ${HIGH_PERF_FLAGS})
     
     if(CMAKE_BUILD_TYPE STREQUAL "Release")
-        target_link_options(apex-cipher PRIVATE -flto)
+        target_link_options(apex-obfuscator PRIVATE -flto)
     endif()
 else()
-    target_compile_options(apex-cipher PRIVATE ${BASE_FLAGS} -O2)
+    target_compile_options(apex-obfuscator PRIVATE ${BASE_FLAGS} -O2)
 endif()
 
 # strips debug symbols in release builds
 if(CMAKE_BUILD_TYPE STREQUAL "Release")
-    add_custom_command(TARGET apex-cipher POST_BUILD
-        COMMAND ${CMAKE_STRIP} $<TARGET_FILE:apex-cipher>
+    add_custom_command(TARGET apex-obfuscator POST_BUILD
+        COMMAND ${CMAKE_STRIP} $<TARGET_FILE:apex-obfuscator>
         COMMENT "Stripping debug symbols..."
     )
 endif()
 
 # link bcrypt for bcryptgenrandom on windows
 if(WIN32)
-    target_link_libraries(apex-cipher PRIVATE bcrypt)
+    target_link_libraries(apex-obfuscator PRIVATE bcrypt)
 endif()
 
 #[[

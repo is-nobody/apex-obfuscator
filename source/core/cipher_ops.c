@@ -1,6 +1,6 @@
 // source/core/cipher_ops.c
-// Implementation of Cipher Operations for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of Cipher Operations for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #include "cipher_ops.h"

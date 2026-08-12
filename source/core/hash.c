@@ -1,6 +1,6 @@
 // source/core/hash.c
-// Implementation of Hash for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of Hash for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #include "hash.h"

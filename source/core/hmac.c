@@ -1,6 +1,6 @@
 // source/core/hmac.c
-// Implementation of HMAC for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of HMAC for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #include "hmac.h"

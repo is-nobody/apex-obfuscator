@@ -1,6 +1,6 @@
 // source/core/keygen.c
-// Implementation of Key Generation for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of Key Generation for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #include <string.h>

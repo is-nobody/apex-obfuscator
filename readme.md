@@ -9,12 +9,12 @@
 ---
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Apex Cipher Version](https://img.shields.io/badge/Apex_Cipher-26.08-blue)](https://github.com/is-nobody/apex-cipher)
+[![Apex Obfuscator Version](https://img.shields.io/badge/Apex_Cipher-26.08-blue)](https://github.com/is-nobody/apex-obfuscator)
 ![Available](https://img.shields.io/badge/Available-Windows%20%7C%20macOS%20%7C%20Linux-red)
 
-This is the official repository for [Apex](https://github.com/is-nobody/apex-cipher) Cipher.
+This is the official repository for [Apex](https://github.com/is-nobody/apex-obfuscator) Cipher.
 
-## Why Apex Cipher?
+## Why Apex Obfuscator?
 - **Minimal & Lightweight:** Pure C implementation with zero external dependencies and minimal codebase.
 
 - **Authenticated Encryption:** HMAC-SHA256 integrity verification detects any tampering or corruption.
@@ -24,11 +24,11 @@ This is the official repository for [Apex](https://github.com/is-nobody/apex-cip
 - **Memory Safe:** Secure zeroization wipes sensitive keys and data immediately after use.
 
 ## Quick Start
-### Install Apex Cipher
+### Install Apex Obfuscator
 1. Clone the repository:
 ```bash
-git clone https://github.com/is-nobody/apex-cipher.git
-cd apex-cipher
+git clone https://github.com/is-nobody/apex-obfuscator.git
+cd apex-obfuscator
 ```
 
 2. Build the project:
@@ -41,14 +41,14 @@ cmake --build build/ --parallel
 Use the `encode` and `decode` arguments:
 
 ```bash
-none@root:~$ apex-cipher encode main.c mykey123
+none@root:~$ apex-obfuscator encode main.c mykey123
 Warning: Key is only 8 bytes. Use at least 32 bytes.
 Short keys will be expanded via HMAC, but this reduces entropy.
 Key: 6d796b6579313233 (8 bytes)
 Progress: 100.0% (6123 / 6123 bytes)
 Successfully encrypted: main.enc
 
-none@root:~$ apex-cipher decode main.enc mykey123
+none@root:~$ apex-obfuscator decode main.enc mykey123
 Key: 6d796b6579313233 (8 bytes)
 Progress: 100.0% (6123 / 6123 bytes)
 Successfully decrypted: main.dec
@@ -80,14 +80,14 @@ Successfully decrypted: main.dec
 | Memory Dump / Cold Boot | Secure zeroization via `volatile` pointers, keys wiped after use |
 
 ## Getting Help
-See [Issues](https://github.com/is-nobody/apex-cipher/issues) for bug reports and feature requests.
+See [Issues](https://github.com/is-nobody/apex-obfuscator/issues) for bug reports and feature requests.
 
 ## Contributing
-Apex Cipher is created and maintained by one person, but contributions are welcome!
+Apex Obfuscator is created and maintained by one person, but contributions are welcome!
 
 Please see [contributing](contributing.md) and remember about [Code of Conduct](code_of_conduct.md)
 
 ## License
-Apex Cipher is distributed under the terms of the **MIT license**.
+Apex Obfuscator is distributed under the terms of the **MIT license**.
 
 See [license](license) for details.

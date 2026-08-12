@@ -1,6 +1,6 @@
 // source/core/encrypt_decrypt.c
-// Implementation of Encrypt/Decrypt for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of Encrypt/Decrypt for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #include "encrypt_decrypt.h"

@@ -1,6 +1,6 @@
 // source/cli/args.h
-// Implementation of CLI Arguments for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of CLI Arguments for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #ifndef ARGS_H

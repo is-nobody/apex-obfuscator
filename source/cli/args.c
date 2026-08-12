@@ -1,6 +1,6 @@
 // source/cli/args.c
-// Implementation of CLI Arguments for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of CLI Arguments for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #include <stdio.h>
@@ -227,7 +227,7 @@ int args_decrypt_file(const char *filename, const char *key_str) {
 // prints usage instructions showing the available commands and their syntax.
 // called when the user provides no command or an unknown command.
 void print_usage(const char *program_name) {
-    printf("Apex Cipher v26.08\n\n");
+    printf("Apex Obfuscator v26.08\n\n");
     printf("Usage:\n");
     printf("  %s encode <file>        - Encrypt file with random key\n", program_name);
     printf("  %s encode <file> <key>  - Encrypt file with provided key\n", program_name);

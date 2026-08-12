@@ -1,6 +1,6 @@
 // main.c
-// Implementation of Main Entry Point for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of Main Entry Point for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #include <stdio.h>
@@ -11,7 +11,7 @@
 #define COLOR_RED "\033[1;31m"
 #define COLOR_RESET "\033[0m"
 
-// entry point for the apex cipher command-line tool.
+// entry point for the Apex Obfuscator command-line tool.
 // supports two commands: encode (encrypt) and decode (decrypt).
 //
 // the default random key is generated once at startup via crypto_init_default_key()

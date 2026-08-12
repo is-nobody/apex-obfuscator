@@ -1,6 +1,6 @@
 // source/core/round_ops.h
-// Implementation of Rounds for Apex Cipher
-// https://github.com/is-nobody/apex-cipher
+// Implementation of Rounds for Apex Obfuscator
+// https://github.com/is-nobody/apex-obfuscator
 // MIT license
 
 #ifndef ROUND_OPS_H
