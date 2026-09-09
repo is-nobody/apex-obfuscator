@@ -11,10 +11,19 @@
 #include "cipher.h"
 #include "utils.h"
 #include "keygen.h"
+#include "shred.h"
+
+// platform-specific includes for sleep function and timing.
+#ifdef _WIN32
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
 
 #define COLOR_GREEN "\033[1;32m"
 #define COLOR_RED "\033[1;31m"
 #define COLOR_CYAN "\033[1;36m"
+#define COLOR_YELLOW "\033[1;33m"
 #define COLOR_RESET "\033[0m"
 
 // checks if a string consists entirely of hexadecimal digits (0-9, a-f, A-F).
@@ -224,6 +233,43 @@ int args_decrypt_file(const char *filename, const char *key_str) {
     return result;
 }
 
+// handles the "shred" command: securely deletes a file using
+// dod 5220.22-m ece 7-pass standard (6 patterns + 1 random).
+// the operation is irreversible and cannot be undone.
+int args_shred_file(const char *filename) {
+    // verify the file exists before attempting secure deletion.
+    FILE *f = fopen(filename, "rb");
+    if (!f) {
+        printf(COLOR_RED "Error: Cannot open file '%s'\n" COLOR_RESET, filename);
+        return 1;
+    }
+    fclose(f);
+    
+    // warn the user about the irreversibility of this operation.
+    printf(COLOR_YELLOW "WARNING: Securely deleting '%s'.\n" COLOR_RESET, filename);
+    printf(COLOR_YELLOW "This operation CANNOT be undone!\n" COLOR_RESET);
+    printf("Press Ctrl+C within 3 seconds to cancel...\n");
+    
+    // give user a brief moment to abort before proceeding.
+    // intentionally minimal delay — just enough for reflex cancellation.
+#ifdef _WIN32
+    Sleep(3000);
+#else
+    sleep(3);
+#endif
+    
+    // perform the secure deletion.
+    int result = shred_file(filename);
+    
+    if (result == 0) {
+        printf(COLOR_GREEN "Successfully shredded: %s\n" COLOR_RESET, filename);
+    } else {
+        printf(COLOR_RED "Error: Secure deletion failed\n" COLOR_RESET);
+    }
+    
+    return result;
+}
+
 // prints usage instructions showing the available commands and their syntax.
 // called when the user provides no command or an unknown command.
 void print_usage(const char *program_name) {
@@ -232,5 +278,6 @@ void print_usage(const char *program_name) {
     printf("  %s encode <file>        - Encrypt file with random key\n", program_name);
     printf("  %s encode <file> <key>  - Encrypt file with provided key\n", program_name);
     printf("  %s decode <file> <key>  - Decrypt file with key\n", program_name);
+    printf("  %s shred <file>         - Securely delete file (7-pass DoD 5220.22-M ECE)\n", program_name);
     printf("\n");
 }

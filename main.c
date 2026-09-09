@@ -12,7 +12,7 @@
 #define COLOR_RESET "\033[0m"
 
 // entry point for the Apex Obfuscator command-line tool.
-// supports two commands: encode (encrypt) and decode (decrypt).
+// supports commands: encode (encrypt), decode (decrypt), shred (secure delete).
 //
 // the default random key is generated once at startup via crypto_init_default_key()
 // so that it's available if needed, but it's only used when the user omits a key
@@ -56,6 +56,17 @@ int main(int argc, char *argv[]) {
         // pass the key as NULL if only filename was given (no key argument).
         const char *key = (argc > 3) ? argv[3] : NULL;
         return args_encrypt_file(argv[2], key);
+    }
+    
+    // handle "shred" command: securely delete a file.
+    // requires exactly a filename — no additional options.
+    if (strcmp(command, "shred") == 0) {
+        if (argc != 3) {
+            printf(COLOR_RED "Error: shred requires exactly a filename\n" COLOR_RESET);
+            print_usage(argv[0]);
+            return 1;
+        }
+        return args_shred_file(argv[2]);
     }
     
     // unknown command — show error and usage to guide the user.

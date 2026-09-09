@@ -20,6 +20,12 @@ int args_encrypt_file(const char *filename, const char *key_str);
 // all failure modes return the same error code to prevent oracle attacks.
 int args_decrypt_file(const char *filename, const char *key_str);
 
+// handles the "shred" command: securely deletes a file.
+// uses dod 5220.22-m ece 7-pass standard for secure deletion.
+// filename: path to the file to securely delete.
+// returns 0 on success, non-zero on error.
+int args_shred_file(const char *filename);
+
 // prints command-line usage instructions to stdout.
 // program_name: typically argv[0] for accurate command name display.
 void print_usage(const char *program_name);

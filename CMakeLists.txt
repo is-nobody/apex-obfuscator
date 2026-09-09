@@ -25,6 +25,7 @@ set(SOURCES
     source/core/kdf.c
     source/core/crypto_context.c
     source/cli/args.c
+    source/shred/shred.c
     source/utils/utils.c
 )
 
@@ -35,6 +36,7 @@ target_include_directories(apex-obfuscator PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/source/core
     ${CMAKE_CURRENT_SOURCE_DIR}/source/cli
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/shred
     ${CMAKE_CURRENT_SOURCE_DIR}/source/utils
 )
 
